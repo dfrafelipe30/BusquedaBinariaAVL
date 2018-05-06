@@ -152,6 +152,7 @@ void ArbolBusquedaBinaria<TipoDato>::eliminarNodo(ArbolBusquedaBinaria<TipoDato>
 		nodo = (nodo->izq != NULL) ? nodo->izq : nodo->der;
 		delete nodoViejo;
 	}
+	balanciar(nodo);
 }
 
 
@@ -232,5 +233,17 @@ void ArbolBusquedaBinaria<TipoDato>::rotarDer(ArbolBusquedaBinaria<TipoDato>::No
 	nodo -> h= max(altura(nodo -> der),altura(nodo->izq));
 	temp -> h = max(altura(temp -> der), nodo -> h) + 1;
 	nodo = temp;
+}
+template <typename TipoDato>
+void ArbolBusquedaBinaria<TipoDato>::doubleRotarIzq(ArbolBusquedaBinaria<TipoDato>::NodoAVL *  & nodo)
+{
+	rotarDer(nodo -> der);
+	rotarIzq(nodo);
+}
+template <typename TipoDato>
+void ArbolBusquedaBinaria<TipoDato>::doubleRotarDer(ArbolBusquedaBinaria<TipoDato>::NodoAVL *  & nodo)
+{
+	rotarDer(nodo -> izq);
+	rotarIzq(nodo);
 }
 #endif

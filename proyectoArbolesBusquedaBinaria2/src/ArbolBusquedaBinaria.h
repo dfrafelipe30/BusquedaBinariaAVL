@@ -76,6 +76,11 @@ public:
 	void rotarIzq(NodoAVL * & nodo);
 
 	void rotarDer(NodoAVL * & nodo);
+
+	void doubleRotarIzq(NodoAVL * & nodo);
+
+	void doubleRotarDer(NodoAVL * & nodo);
+
 	/*
 
 	void imprimirPreOrden();
